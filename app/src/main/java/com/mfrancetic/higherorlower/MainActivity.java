@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     private Button guessButton;
     private EditText numberEditText;
 
-    private Context context;
     private Random random;
     private int randomNumber;
     private int guessedNumber;
@@ -41,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
         guessButton = findViewById(R.id.guess_button);
         numberEditText = findViewById(R.id.number_edit_text);
 
-        context = numberEditText.getContext();
-
         guessButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,14 +53,18 @@ public class MainActivity extends AppCompatActivity {
     private void checkIfNumberIsCorrect() {
         guessedNumberString = numberEditText.getText().toString();
         guessedNumber = Integer.parseInt(guessedNumberString);
+
+        String message;
+
         if (guessedNumber < randomNumber) {
-            Toast.makeText(context, R.string.toast_higher, Toast.LENGTH_SHORT).show();
+            message = getString(R.string.toast_higher);
         } else if (guessedNumber > randomNumber) {
-            Toast.makeText(context, R.string.toast_lower, Toast.LENGTH_SHORT).show();
+            message = getString(R.string.toast_lower);
         } else {
-            Toast.makeText(context, R.string.toast_correct, Toast.LENGTH_SHORT).show();
+            message = getString(R.string.toast_correct);
             generateRandom();
         }
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     private void clearEditText() {
