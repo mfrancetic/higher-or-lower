@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HigherOrLower</string>
+    <string name="app_name">Higher Or Lower</string>
     <string name="instruction_text">I am guessing of a number between 1 and 20.</string>
     <string name="question_text">Can you guess it?</string>
     <string name="guess_button_text">Guess!</string>
