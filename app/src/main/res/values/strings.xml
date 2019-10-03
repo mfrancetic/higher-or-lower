@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">HigherOrLower</string>
+    <string name="instruction_text">I am guessing of a number between 1 and 20.</string>
+    <string name="question_text">Can you guess it?</string>
+    <string name="guess_button_text">Guess!</string>
+    <string name="toast_lower">Lower!</string>
+    <string name="toast_higher">Higher!</string>
+    <string name="toast_correct">You got it! Try again!</string>
+    <string name="number_edit_text_hint">Enter a number</string>
 </resources>
