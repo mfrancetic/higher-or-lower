@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private int guessedNumber;
     private String guessedNumberString;
 
+    private final static String randomNumberKey = "randomNumber";
+
     private int max = 20;
     private int min = 1;
 
@@ -30,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        generateRandom();
+        if (savedInstanceState != null) {
+            randomNumber = savedInstanceState.getInt(randomNumberKey);
+        } else {
+            generateRandom();
+        }
 
         guessButton = findViewById(R.id.guess_button);
         numberEditText = findViewById(R.id.number_edit_text);
@@ -68,5 +74,11 @@ public class MainActivity extends AppCompatActivity {
         random = new Random();
 
         randomNumber = random.nextInt((max - min) + 1) + min;
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt(randomNumberKey, randomNumber);
+        super.onSaveInstanceState(outState);
     }
 }
